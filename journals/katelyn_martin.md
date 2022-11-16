@@ -16,6 +16,6 @@ We also presented our idea to the group today with good feedback!
 
 ## 11/16/22
 Today, I worked on:
-* posgres multiple database set up, API endpoint design, docker yaml file updates
+* posgres database set up, API endpoint design, docker yaml file updates
 
-I set up our project to allow for multiple databases using postgresql. I also updated our yaml file to support these updates throughout the project. I set up our projects new accounts service. I worked together with my team to finish our API endpoint designs for the rest of our project.
+I set up our project database using postgresql. I also updated our yaml file to support this updates throughout the project. I worked with Klaudia to finalize API endpoint design. We do realize that there endpoints can change as the project evolves. I submitted the wireframe and created the api.md in docs.
