@@ -17,7 +17,7 @@ services:
       - 15432:5432
   parking:
     build:
-      context: parking
+      context: ./parking
       dockerfile: Dockerfile.dev
     ports:
       - 8000:8000
@@ -26,17 +26,19 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgresql://parkit:password@db/parking
-      WAIT_HOSTS: db:5432
+      DATABASE_URL: postgresql://parking:password@db/parking
+      WAIT_HOSTS: postgres:5432
 
   accounts:
     build:
-      context: accounts
+      context: ./accounts
       dockerfile: Dockerfile.dev
     ports:
       - 8001:8000
     volumes:
       - ./accounts:/app
+    depends_on:
+      - postgres
     environment:
       DATABASE_URL: postgresql://accounts:password@db/accounts
       WAIT_HOSTS: postgres:5432
