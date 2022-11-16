@@ -1,19 +1,45 @@
-# volumes:
-#   gamma-data:
-#     external: true
+volumes:
+  park-it-data:
+    external: true
+  # pgadmin:
+  #   external: true
 services:
-  fastapi:
+  postgres:
     build:
-      context: sample_service
+      context: ./relational-data
+      dockerfile: ./Dockerfile.dev
+    volumes:
+      - park-it-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_MULTIPLE_DATABASES=accounts,parking
+      - POSTGRES_PASSWORD=test-databases
+    ports:
+      - 15432:5432
+  parking:
+    build:
+      context: parking
       dockerfile: Dockerfile.dev
-    # environment:
-    #   DATABASE_URL: postgresql://WHAT OUR USER NAME IS:WHAT OUR PASSWORD IS@db/DATABASE NAME
-    #   WAIT_HOSTS: db:5432
-    #   PORT: 8000
     ports:
       - 8000:8000
     volumes:
-      - ./sample_service:/app
+      - ./parking:/app
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgresql://parkit:password@db/parking
+      WAIT_HOSTS: db:5432
+
+  accounts:
+    build:
+      context: accounts
+      dockerfile: Dockerfile.dev
+    ports:
+      - 8001:8000
+    volumes:
+      - ./accounts:/app
+    environment:
+      DATABASE_URL: postgresql://accounts:password@db/accounts
+      WAIT_HOSTS: postgres:5432
 
   ghi:
     image: node:lts-bullseye
@@ -29,13 +55,3 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
       REACT_APP_SAMPLE_SERVICE_API_HOST: http://localhost:8000
-  # db:
-  #   image: postgres:14.5-bullseye
-  #   environment:
-  #     POSTGRES_PASSWORD:
-  #     POSTGRES_USER:
-  #     POSTGRES_DB:
-  #   ports:
-  #     - "15432:5432"
-  #   volumes:
-  #     - gamma-data:/var/lib/postgresql/data
