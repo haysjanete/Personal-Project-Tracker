@@ -4,45 +4,18 @@ volumes:
   # pgadmin:
   #   external: true
 services:
-  postgres:
+  park_it:
     build:
-      context: ./relational-data
-      dockerfile: ./Dockerfile.dev
-    volumes:
-      - park-it-data:/var/lib/postgresql/data
-    environment:
-      - POSTGRES_MULTIPLE_DATABASES=accounts,parking
-      - POSTGRES_PASSWORD=test-databases
-    ports:
-      - 15432:5432
-  parking:
-    build:
-      context: ./parking
+      context: ./park_it
       dockerfile: Dockerfile.dev
+    environment:
+      DATABASE_URL: postgresql://example_user:password@db/park-it
+      WAIT_HOSTS: db:5432
+      PORT: 8000
     ports:
       - 8000:8000
     volumes:
-      - ./parking:/app
-    depends_on:
-      - postgres
-    environment:
-      DATABASE_URL: postgresql://parking:password@db/parking
-      WAIT_HOSTS: postgres:5432
-
-  accounts:
-    build:
-      context: ./accounts
-      dockerfile: Dockerfile.dev
-    ports:
-      - 8001:8000
-    volumes:
-      - ./accounts:/app
-    depends_on:
-      - postgres
-    environment:
-      DATABASE_URL: postgresql://accounts:password@db/accounts
-      WAIT_HOSTS: postgres:5432
-
+      - ./park_it:/app
   ghi:
     image: node:lts-bullseye
     command: /bin/bash run.sh
@@ -56,5 +29,14 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
-      REACT_APP_PARKING_API_HOST: http://localhost:8000
-      REACT_APP_ACCOUNTS_API_HOST: http://localhost:8001
+      REACT_APP_PARK_IT_API_HOST: http://localhost:8000
+  db:
+    image: postgres:14.5-bullseye
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: example_user
+      POSTGRES_DB: park-it
+    ports:
+      - "15432:5432"
+    volumes:
+      - park-it-data:/var/lib/postgresql/data
