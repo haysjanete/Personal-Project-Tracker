@@ -15,3 +15,7 @@ I worked with Kaludia and Andrew to determine our API endpoint design for the lo
 We also presented our idea to the group today with good feedback!
 
 ## 11/16/22
+Today, I worked on:
+* posgres multiple database set up, API endpoint design, docker yaml file updates
+
+I set up our project to allow for multiple databases using postgresql. I also updated our yaml file to support these updates throughout the project. I set up our projects new accounts service. I worked together with my team to finish our API endpoint designs for the rest of our project.
