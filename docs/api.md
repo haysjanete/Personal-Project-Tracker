@@ -89,7 +89,7 @@
 ```json
     {"street_name": string
      "city": string
-     "state_abbreviation": string
+     "state": string
      "zipcode": int} 
 ```
 
@@ -101,7 +101,7 @@
          "coordinates": int
          "street_name": string
          "city": string
-         "state: string
+         "state": string
          "zipcode": int
     ]
 } 
@@ -125,7 +125,7 @@
     {"parking_spots": [
         "street_name": string
         "city": string
-        "state_abbreviation": string
+        "state": string
         "zipcode": int
         ]
     }
@@ -144,7 +144,7 @@
     {"spot_id": int
      "street_name": string
      "city": string
-     "state_abbreviation": string
+     "state": string
      "zipcode": int}
 ```
 
@@ -154,7 +154,7 @@
     {"coordinates": int
     "street_name": string
     "city": string
-    "state_abbreviation": string
+    "state": string
     "zipcode": int}
 ```
 
@@ -196,7 +196,7 @@
         "coordinates": int
         "street_name": string
         "city": string
-        "state_abbreviation": string
+        "state": string
         "zipcode": int
         ]
     }
@@ -221,7 +221,7 @@
     {"coordinates": int
      "street_name": string
      "city": string
-     "state_abbreviation: string
+     "state": string
      "zipcode": int
      "available": boolean}
 ```
