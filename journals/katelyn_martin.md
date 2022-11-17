@@ -19,3 +19,9 @@ Today, I worked on:
 * posgres database set up, API endpoint design, docker yaml file updates
 
 I set up our project database using postgresql. I also updated our yaml file to support this updates throughout the project. I worked with Klaudia to finalize API endpoint design. We do realize that these endpoints can change as the project evolves. I uploaded the wireframe and created the api.md in docs. I am currently debating between setting up a script to set up our database tables vs using migrations.
+
+## 11/17/22
+Today, I worked on:
+* progres database set up,
+
+I ended up reconfiguring our postgres set up to use migrations instead of a sql file. I learned about using the F2 key today from the video on authentication in order to select all items on a page.
