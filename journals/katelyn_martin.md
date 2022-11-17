@@ -18,4 +18,4 @@ We also presented our idea to the group today with good feedback!
 Today, I worked on:
 * posgres database set up, API endpoint design, docker yaml file updates
 
-I set up our project database using postgresql. I also updated our yaml file to support this updates throughout the project. I worked with Klaudia to finalize API endpoint design. We do realize that there endpoints can change as the project evolves. I submitted the wireframe and created the api.md in docs.
+I set up our project database using postgresql. I also updated our yaml file to support this updates throughout the project. I worked with Klaudia to finalize API endpoint design. We do realize that these endpoints can change as the project evolves. I uploaded the wireframe and created the api.md in docs. I am currently debating between setting up a script to set up our database tables vs using migrations.
