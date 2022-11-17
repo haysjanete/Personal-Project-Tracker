@@ -103,7 +103,7 @@ body {
 
 .overlay {
   background-color: var(--lightblue);
-  background: url(/photos/ombre\ background.jpg);
+  background: url(/ghi/src/photos/ombre\ background.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

@@ -1,4 +1,7 @@
-# volumes:
+volumes:
+  park-it-data:
+    external: true
+
 services:
   fastapi:
     build:
