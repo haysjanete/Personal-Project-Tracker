@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import LoginSignupPage from "./LoginSignupPage.js";
+import LoginSignupPage from "./Pages/LoginSignupPage.js";
 import ErrorNotification from "./ErrorNotification";
 import "./App.css";
 

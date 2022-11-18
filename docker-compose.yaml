@@ -2,11 +2,17 @@ volumes:
   park-it-data:
     external: true
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
   pgadmin:
     external: true
 >>>>>>> 1fd3838b5aee004509899de55dfcdb67cbdeba96
+=======
+
+  # pgadmin:
+  #   external: true
+>>>>>>> janete
 services:
   park_it:
     build:
@@ -21,11 +27,17 @@ services:
       - 8000:8000
     volumes:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - ./sample_service:/app
 
 =======
       - ./park_it:/app
 >>>>>>> 1fd3838b5aee004509899de55dfcdb67cbdeba96
+=======
+      - ./sample_service:/app
+
+      - ./park_it:/app
+>>>>>>> janete
   ghi:
     image: node:lts-bullseye
     command: bash -c "npm install && npm start"
@@ -40,8 +52,12 @@ services:
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
 <<<<<<< HEAD
+<<<<<<< HEAD
       REACT_APP_SAMPLE_SERVICE_API_HOST: http://localhost:8000
 =======
+=======
+      REACT_APP_SAMPLE_SERVICE_API_HOST: http://localhost:8000
+>>>>>>> janete
       REACT_APP_PARK_IT_API_HOST: http://localhost:8000
   db:
     image: postgres:14.5-bullseye
@@ -53,6 +69,7 @@ services:
       - "15432:5432"
     volumes:
       - park-it-data:/var/lib/postgresql/data
+<<<<<<< HEAD
   pg-admin:
     image: dpage/pgadmin4
     volumes:
@@ -64,3 +81,5 @@ services:
       PGADMIN_DEFAULT_PASSWORD: password
       PGADMIN_DISABLE_POSTFIX: 1
 >>>>>>> 1fd3838b5aee004509899de55dfcdb67cbdeba96
+=======
+>>>>>>> janete
