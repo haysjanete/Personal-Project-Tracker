@@ -1,8 +1,8 @@
 volumes:
   park-it-data:
     external: true
-  # pgadmin:
-  #   external: true
+  pgadmin:
+    external: true
 services:
   park_it:
     build:
@@ -41,3 +41,13 @@ services:
       - "15432:5432"
     volumes:
       - park-it-data:/var/lib/postgresql/data
+  pg-admin:
+    image: dpage/pgadmin4
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - 8082:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: katelyn.garner@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_DISABLE_POSTFIX: 1
