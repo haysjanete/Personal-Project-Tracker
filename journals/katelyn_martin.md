@@ -22,6 +22,12 @@ I set up our project database using postgresql. I also updated our yaml file to 
 
 ## 11/17/22
 Today, I worked on:
-* progres database set up,
+* progres database set up, authentication, log in, log out.
 
-I ended up reconfiguring our postgres set up to use migrations instead of a sql file. I learned about using the F2 key today from the video on authentication in order to select all items on a page.
+I ended up reconfiguring our postgres set up to use migrations instead of a sql file. I learned about using the F2 key today from the video on authentication in order to select all items on a page. Worked for a long time with Klaudia to get authentication set up. Had some issues when it came to our Account Repo.
+
+## 11/18/22
+Today, I worked on:
+* Authentication. Third party API manipulation.
+
+The lecture this morning was very enlightening. I was able to get our authetication, log in, log out working from the lecture Dalonte gave! We are now working on deciding how to save our user input addresses in the back end in order to populate them on our dynamic map on the front end.
