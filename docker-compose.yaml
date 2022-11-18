@@ -1,20 +1,34 @@
 volumes:
   park-it-data:
     external: true
+<<<<<<< HEAD
 
+=======
+  pgadmin:
+    external: true
+>>>>>>> 1fd3838b5aee004509899de55dfcdb67cbdeba96
 services:
-  fastapi:
+  park_it:
     build:
-      context: sample_service
+      context: ./park_it
       dockerfile: Dockerfile.dev
+    environment:
+      SIGNING_KEY: 8E458B0F2D63854636D9811825F3AA5CD2B405F9
+      DATABASE_URL: postgresql://example_user:password@db/park_it
+      WAIT_HOSTS: db:5432
+      PORT: 8000
     ports:
       - 8000:8000
     volumes:
+<<<<<<< HEAD
       - ./sample_service:/app
 
+=======
+      - ./park_it:/app
+>>>>>>> 1fd3838b5aee004509899de55dfcdb67cbdeba96
   ghi:
     image: node:lts-bullseye
-    command: /bin/bash run.sh
+    command: bash -c "npm install && npm start"
     working_dir: /app
     volumes:
       - ./ghi:/app
@@ -25,4 +39,28 @@ services:
       NODE_ENV: development
       HOST: "0.0.0.0"
       PUBLIC_URL: http://localhost:3000
+<<<<<<< HEAD
       REACT_APP_SAMPLE_SERVICE_API_HOST: http://localhost:8000
+=======
+      REACT_APP_PARK_IT_API_HOST: http://localhost:8000
+  db:
+    image: postgres:14.5-bullseye
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: example_user
+      POSTGRES_DB: park_it
+    ports:
+      - "15432:5432"
+    volumes:
+      - park-it-data:/var/lib/postgresql/data
+  pg-admin:
+    image: dpage/pgadmin4
+    volumes:
+      - pgadmin:/var/lib/pgadmin
+    ports:
+      - 8082:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: katelyn.garner@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_DISABLE_POSTFIX: 1
+>>>>>>> 1fd3838b5aee004509899de55dfcdb67cbdeba96
