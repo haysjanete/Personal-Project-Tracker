@@ -1,1 +1,9 @@
-{}
+{
+  "dependencies": {
+    "jquery": "^3.6.1",
+    "react-router-dom": "^6.4.3"
+  },
+  "devDependencies": {
+    "@types/react-router-dom": "^5.3.3"
+  }
+}

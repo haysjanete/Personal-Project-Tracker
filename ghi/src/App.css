@@ -27,7 +27,6 @@ body {
   background-size: cover;
   display: grid;
   height: 100vh;
-  place-items: center;
 }
 
 .form__title {
@@ -44,6 +43,7 @@ body {
 }
 
 .container {
+  align-content: center;
   background-color: var(--white);
   border-radius: var(--button-radius);
   box-shadow: 0 0.9rem 1.7rem rgba(0, 0, 0, 0.25),
@@ -53,6 +53,7 @@ body {
   overflow: hidden;
   position: relative;
   width: 100%;
+  margin: auto;
 }
 
 .container__form {
@@ -214,3 +215,5 @@ body {
     z-index: 5;
   }
 }
+
+/* HomePage css */
